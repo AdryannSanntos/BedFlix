@@ -1,5 +1,5 @@
 # BedFlix
-Assista filmes gratuitamente, sem sair da cama, com BedFlix
+Assista filmes gratuitamente, sem sair da cama, com BedFlix <br/>
 Acesse o site BedFlix clicando <a href="https://bed-flix.vercel.app">aqui</a>
 
 ## Como instalar
