@@ -7,10 +7,8 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 
 export function Sidebar() {
   return (
-    
-    <aside className="fixed mt-[68px] w-[348px] h-full bg-gray-700 p-6 border-r border-gray-600">
-      <Scrollbars style={{ width: "100%", height: "100%"}}>
-        <div className="flex flex-col mr-5">
+    <aside className="fixed mt-[68px] overflow-y-auto w-[348px] h-full bg-gray-700 p-6 border-r border-gray-600">
+        <div className="flex flex-col">
           <span className="title">
             Pesquisa
           </span>
@@ -27,7 +25,7 @@ export function Sidebar() {
             <span className="title">
               Gênero
             </span>
-            <div className="mt-4 gap-4 flex flex-col pb-6  border-b border-gray-500 block">
+            <div className="mt-4 mb-16 gap-4 flex flex-col pb-6  border-b border-gray-500 block">
               <GenreButton genre="terror" icon={<Knife size={21} weight="bold"/>}/>
               <GenreButton genre="suspense" icon={<Knife size={21} weight="bold" />}/>
               <GenreButton genre="comédia" icon={<Knife size={21} weight="bold" />}/>
@@ -37,7 +35,6 @@ export function Sidebar() {
             </div>
           </div>
         </div>
-      </Scrollbars>
     </aside>
     
   )
