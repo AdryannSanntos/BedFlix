@@ -14,7 +14,7 @@ export function Sidebar() {
             Pesquisa
           </span>
           <div className="flex justify-between items-center bg-gray-900 p-3 rounded mt-4 ">
-            <input  className="bg-transparent outline-none" type="text" placeholder="Procurar..."/>
+            <input  className="w-[90%] bg-transparent outline-none" type="text" placeholder="Procurar..."/>
             <a href="#"><MagnifyingGlass /></a>
           </div>
           <div className="mt-4 flex gap-1 flex-wrap pb-6 mb-6 border-b border-gray-500 block">
