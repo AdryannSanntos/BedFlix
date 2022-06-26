@@ -21,13 +21,17 @@ interface GetMoviesQueryResponse {
   }[]
 }
 
-export function MovieRow() {
+interface MovieRowProps {
+  title: string;
+}
+
+export function MovieRow(props : MovieRowProps) {
   const { data } = useQuery<GetMoviesQueryResponse>(GET_MOVIES);
   return (
     <section className="mb-6">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-1 h-8 bg-red-300"></div>
-        <span className="title">Últimos Filmes</span>
+        <span className="title">{props.title}</span>
       </div>
       <div className="ml-4 gap-5 flex">
         {data?.movies.map(movies =>{
