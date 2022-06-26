@@ -2,10 +2,14 @@ import { Knife, MagnifyingGlass } from "phosphor-react";
 import { Genre } from "./Genre";
 import { GenreButton } from "./GenreButton";
 
+import { Scrollbars } from 'react-custom-scrollbars-2';
+
+
 export function Sidebar() {
   return (
-    <aside className="fixed mt-[68px] overflow-y-auto w-[348px] h-full bg-gray-700 p-6 border-r border-gray-600">
-        <div className="flex flex-col">
+    <aside className="fixed mt-[68px] overflow-y-auto w-[348px] h-full bg-gray-700 pr-1 pl-6 pt-6 pb-6 border-r border-gray-600">
+      <Scrollbars>
+        <div className="flex flex-col pr-6">
           <span className="title">
             Pesquisa
           </span>
@@ -32,6 +36,7 @@ export function Sidebar() {
             </div>
           </div>
         </div>
+      </Scrollbars>
     </aside>
     
   )
