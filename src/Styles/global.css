@@ -10,3 +10,11 @@ body{
 .title{
   @apply font-bold text-2xl;
 }
+
+.input{
+  @apply p-4 bg-gray-900 outline-none mb-2 w-full rounded text-sm;
+}
+
+.input-submit{
+  @apply p-4 bg-red-900 outline-none mb-2 mt-6 w-full rounded font-bold text-sm text-center;
+}
