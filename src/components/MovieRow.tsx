@@ -5,6 +5,7 @@ const GET_MOVIES = gql`
   query MyQuery {
     movies {
       id
+      slug
       title
       released
       image
@@ -15,6 +16,7 @@ const GET_MOVIES = gql`
 interface GetMoviesQueryResponse {
   movies: {
     id: string;
+    slug: string;
     title: string;
     released: Date;
     image: string;
@@ -36,7 +38,7 @@ export function MovieRow(props : MovieRowProps) {
       <div className="ml-4 gap-5 flex">
         {data?.movies.map(movies =>{
           return(
-            <Movie title={movies.title} date={new Date(movies.released)} image={movies.image}/>
+            <Movie title={movies.title} date={new Date(movies.released)} image={movies.image} slug={movies.slug}/>
           )
         })}
       </div>
