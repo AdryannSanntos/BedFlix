@@ -2,6 +2,15 @@
 Assista filmes gratuitamente, sem sair da cama, com BedFlix <br/>
 Acesse o site BedFlix clicando <a href="https://bed-flix.vercel.app">aqui</a>
 
+## Features
+- [x] Home Screen
+- [x] Selected Film Screen
+- [x] Movie Selector Screen
+- [x] Receive all movie informations from Graphcms 
+- [x] Get movie information when click on it
+- [ ] Admin functions
+- [ ] Responsive
+
 ## Como instalar
 <ul>
   <li>Baixa o projeto</li>
