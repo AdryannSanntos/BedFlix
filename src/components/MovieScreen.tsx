@@ -19,7 +19,7 @@ const GET_MOVIE_BY_SLUG = gql`
 interface GetMovieBySlug {
   movie: {
     title: string;
-    movieURL: string;
+    movieUrl: string;
     description: string;
     released: Date;
     image: string;
@@ -36,6 +36,7 @@ export function MovieScreen(props : MovieProps) {
       slug: props.movieSlug
     }
   })
+  console.log(data?.movie.movieUrl)
   if(!data){
     return (
     <div className="flex-1">
@@ -51,7 +52,7 @@ export function MovieScreen(props : MovieProps) {
         title={data.movie.title}
         description={data.movie.description}
         imageUrl={data.movie.image}
-        movieUrl={data.movie.movieURL}
+        movieUrl={data.movie.movieUrl}
         released={new Date(data.movie.released)}
       />
     </div>
