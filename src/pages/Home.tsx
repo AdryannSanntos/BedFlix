@@ -24,7 +24,7 @@ export function Home() {
                 <form className="flex flex-col">
                   <input className="input" type="text" placeholder="Seu nome completo"/>
                   <input className="input" type="email" placeholder="Digite seu email"/>
-                  <a className="input-submit">GARANTIR MINHA VAGA</a>
+                  <a href="/event" className="input-submit">GARANTIR MINHA VAGA</a>
                 </form>
               </div>
             </div>
