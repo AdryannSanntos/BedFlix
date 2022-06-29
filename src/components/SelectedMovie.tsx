@@ -1,16 +1,21 @@
 import background from "../assets/Background.png";
 import { Footer } from "./Footer";
 import { MovieRow } from "./MovieRow";
+import { format } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
 
 interface SelectedMovieProps {
   title: string;
-  date: string;
   imageUrl: string;
   description: string;
   movieUrl: string;
+  released: Date;
 }
 
 export function SelectedMovie(props : SelectedMovieProps) {
+  const DateFormatted = format(props.released, "MMM '.' dd ',' uuuu", {
+    locale: ptBR
+  });
   return (
     <div className="ml-[348px] mt-[68px] bg-no-repeat bg-cover" style={{backgroundImage: `url(${background})`, width: 'calc(100% - 348px)'}}>
       <div className="flex flex-col justify-between h-full">
@@ -29,7 +34,7 @@ export function SelectedMovie(props : SelectedMovieProps) {
                 <div className="grid grid-rows-2 grid-cols-1 w-[80%]">
                   <div className="flex flex-col">
                     <span className="title">Assista <span className="text-red-300 font-bold text-2xl">{props.title}</span> Online</span>
-                    <span className="text-xs">Jun. 22, 2022</span>
+                  <span className="text-xs text-gray-300">{DateFormatted}</span>
                     <span className="text-sm text-gray-300 mt-4">{props.description}</span>
                   </div>
                   <div className="flex flex-col gap-4 mt-2">
