@@ -1,8 +1,17 @@
 import { Footer } from "../components/Footer";
 import { Logo } from "../components/Logo";
 import background from "../assets/Background.png";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export function Home() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+
+    // 👇️ redirect to /contacts
+    navigate('/movies');
+  };
   return (
     <div className="flex flex-col min-h-screen">
         <main className="flex flex-1 justify-around bg-no-repeat bg-cover" style={{backgroundImage: `url(${background})`}}>
@@ -21,10 +30,10 @@ export function Home() {
                 <span className="font-bold text-lg mb-4">
                   Inscreva-se gratuitamente
                 </span>
-                <form className="flex flex-col">
-                  <input className="input" type="text" placeholder="Seu nome completo"/>
-                  <input className="input" type="email" placeholder="Digite seu email"/>
-                  <a href="/movies" className="input-submit">GARANTIR MINHA VAGA</a>
+                <form onSubmit={handleSubmit} className="flex flex-col">
+                  <input required className="input" type="text" placeholder="Seu nome completo"/>
+                  <input required className="input" type="email" placeholder="Digite seu email"/>
+                  <input type="submit" value="GARANTIR MINHA VAGA" className="input-submit"/>
                 </form>
               </div>
             </div>

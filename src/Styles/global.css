@@ -16,5 +16,5 @@ body{
 }
 
 .input-submit{
-  @apply p-4 bg-red-900 outline-none mb-2 mt-6 w-full rounded font-bold text-sm text-center;
+  @apply p-4 bg-red-900 outline-none mb-2 mt-6 w-full rounded font-bold text-sm text-center cursor-pointer;
 }
