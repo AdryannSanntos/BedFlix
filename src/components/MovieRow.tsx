@@ -29,6 +29,15 @@ interface MovieRowProps {
 
 export function MovieRow(props : MovieRowProps) {
   const { data } = useQuery<GetMoviesQueryResponse>(GET_MOVIES);
+  if(!data){
+    return (
+    <div className="flex-1">
+      <h1>
+        Carregando filmes...
+      </h1>
+    </div>
+    )
+  }
   return (
     <section className="mb-6">
       <div className="flex items-center gap-2 mb-4">
