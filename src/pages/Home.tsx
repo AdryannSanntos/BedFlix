@@ -8,8 +8,6 @@ export function Home() {
 
   const handleSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-
-    // 👇️ redirect to /contacts
     navigate('/movies');
   };
   return (

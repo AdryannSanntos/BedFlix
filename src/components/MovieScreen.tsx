@@ -1,8 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { useParams } from "react-router-dom";
-import { Header } from "../components/Header";
 import { SelectedMovie } from "../components/SelectedMovie";
-import { Sidebar } from "../components/Sidebar";
 
 const GET_MOVIE_BY_SLUG = gql`
   query GetMovie($slug: String) {
@@ -12,6 +9,8 @@ const GET_MOVIE_BY_SLUG = gql`
       released
       title
       description
+      id
+      slug
     }
   }
 `;
@@ -23,6 +22,8 @@ interface GetMovieBySlug {
     description: string;
     released: Date;
     image: string;
+    id: string;
+    slug: string;
   }
 }
 
@@ -36,12 +37,11 @@ export function MovieScreen(props : MovieProps) {
       slug: props.movieSlug
     }
   })
-  console.log(data?.movie.movieUrl)
   if(!data){
     return (
     <div className="flex-1">
       <h1>
-        Carregando...
+        Carregando filmes...
       </h1>
     </div>
     )
@@ -53,6 +53,8 @@ export function MovieScreen(props : MovieProps) {
         description={data.movie.description}
         imageUrl={data.movie.image}
         movieUrl={data.movie.movieUrl}
+        id={data.movie.id}
+        slug={data.movie.slug}
         released={new Date(data.movie.released)}
       />
     </div>

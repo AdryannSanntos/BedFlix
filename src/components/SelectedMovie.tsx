@@ -3,6 +3,7 @@ import { Footer } from "./Footer";
 import { MovieRow } from "./MovieRow";
 import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import { Link } from "react-router-dom";
 
 interface SelectedMovieProps {
   title: string;
@@ -10,6 +11,8 @@ interface SelectedMovieProps {
   description: string;
   movieUrl: string;
   released: Date;
+  slug: string;
+  id: string;
 }
 
 export function SelectedMovie(props : SelectedMovieProps) {
@@ -38,8 +41,10 @@ export function SelectedMovie(props : SelectedMovieProps) {
                     <span className="text-sm text-gray-300 mt-4">{props.description}</span>
                   </div>
                   <div className="flex flex-col gap-4 mt-2">
-                    <a target="_blank" href={props.movieUrl} className="text-center p-4 w-[25%] bg-red-300 text-white rounded font-bold text-sm">ASSISTIR DUBLADO</a>
-                    <a target="_blank" href={props.movieUrl} className="text-center p-4 w-[25%] border border-red-300 text-red-300 rounded font-bold text-sm">ASSISTIR LEGENDADO</a>
+                    <Link to={`/movies/watch/${props.slug}`}>
+                      <button className="text-center p-4 w-[25%] bg-red-300 text-white rounded font-bold text-sm">ASSISTIR DUBLADO</button>
+                    </Link>
+                    <a target="_blank" href="#" className="text-center p-4 w-[25%] border border-red-300 text-red-300 rounded font-bold text-sm">ASSISTIR LEGENDADO</a>
                   </div>
                 </div>
               </div>
