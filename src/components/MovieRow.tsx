@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import { Movie } from "./Movie";
 
 const GET_MOVIES = gql`
-  query MyQuery {
+  query GetMovies {
     movies {
       id
       slug

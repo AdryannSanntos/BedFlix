@@ -2,7 +2,7 @@ import { Footer } from "../components/Footer";
 import { Logo } from "../components/Logo";
 import background from "../assets/Background.png";
 import { useNavigate } from 'react-router-dom';
-import { gql, useMutation } from "@apollo/client";
+import { gql, useMutation, useQuery } from "@apollo/client";
 import { FormEvent, useState } from "react";
 
 const CREATE_MEMBER_MUTATION = gql`
@@ -13,6 +13,24 @@ const CREATE_MEMBER_MUTATION = gql`
   }
 `;
 
+const GET_MEMBERS = gql`
+  query GetMembers($email: String, $name: String) {
+    members(where: {email: $email, name: $name}) {
+      email
+      name
+    }
+  }
+
+`;
+
+interface GetMembersQueryResponse {
+  members: {
+    id: string;
+    email: string;
+    name: string;
+  }[]
+}
+
 export function Home() {
   const navigate = useNavigate();
 
@@ -20,19 +38,31 @@ export function Home() {
   const [email, setEmail] = useState("");
 
   const [createMember, {loading}] = useMutation(CREATE_MEMBER_MUTATION);
+  const { data } = useQuery<GetMembersQueryResponse>(GET_MEMBERS, {
+    variables: {
+      name: name,
+      email: email
+    }
+  });
 
   async function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-    try{
-      await createMember({
-        variables: {
-          name,
-          email,
-        },
-      });
+    if(!data){
+      event.preventDefault();
+      try{
+        await createMember({
+          variables: {
+            name,
+            email,
+          },
+        });
+        navigate("/movies");
+      } catch (error) {
+        alert("Não foi possivel efetuar o cadastro no momento");
+      }
+    }else{
       navigate("/movies");
-    } catch (error) {
-      alert("Não foi possivel efetuar o cadastro no momento");
+      console.log("Already have an account");
+      
     }
   }
 
