@@ -14,7 +14,8 @@ Access the BedFlix website by clicking <a href="https://bed-flix.vercel.app">her
 - [x] Movie Selector Screen
 - [x] Receive all movie informations from Graphcms 
 - [x] Get movie information when click on it
-- [ ] Add iframe to the film
+- [x] Iframe to the film
+- [x] Add to the Graphcms new members
 - [ ] Admin functions
 - [ ] Responsive
 

@@ -1,15 +1,41 @@
 import { Footer } from "../components/Footer";
 import { Logo } from "../components/Logo";
 import background from "../assets/Background.png";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { gql, useMutation } from "@apollo/client";
+import { FormEvent, useState } from "react";
+
+const CREATE_MEMBER_MUTATION = gql`
+  mutation createNewMember($name: String!, $email: String!) {
+    createMember(data: {name: $name, email: $email}) {
+      id
+    }
+  }
+`;
 
 export function Home() {
   const navigate = useNavigate();
 
-  const handleSubmit = (event: { preventDefault: () => void; }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const [createMember, {loading}] = useMutation(CREATE_MEMBER_MUTATION);
+
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    navigate('/movies');
-  };
+    try{
+      await createMember({
+        variables: {
+          name,
+          email,
+        },
+      });
+      navigate("/movies");
+    } catch (error) {
+      alert("Não foi possivel efetuar o cadastro no momento");
+    }
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
         <main className="flex flex-1 justify-around bg-no-repeat bg-cover" style={{backgroundImage: `url(${background})`}}>
@@ -29,9 +55,9 @@ export function Home() {
                   Inscreva-se gratuitamente
                 </span>
                 <form onSubmit={handleSubmit} className="flex flex-col">
-                  <input required className="input" type="text" placeholder="Seu nome completo"/>
-                  <input required className="input" type="email" placeholder="Digite seu email"/>
-                  <input type="submit" value="GARANTIR MINHA VAGA" className="input-submit"/>
+                  <input onChange={(event) => setName(event.target.value)} required className="input" type="text" placeholder="Seu nome completo"/>
+                  <input onChange={(event) => setEmail(event.target.value)} required className="input" type="email" placeholder="Digite seu email"/>
+                  <button type="submit" className="input-submit">{!loading ? "Garantir minha vaga" : "Aguarde..."}</button>
                 </form>
               </div>
             </div>
