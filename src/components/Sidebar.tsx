@@ -27,12 +27,13 @@ export function Sidebar() {
               Gênero
             </span>
             <div className="mt-4 mb-16 gap-4 flex flex-col pb-6  border-b border-gray-500 block">
-              <GenreButton genre="terror" icon={<Knife size={21} weight="bold"/>}/>
-              <GenreButton genre="suspense" icon={<Knife size={21} weight="bold" />}/>
-              <GenreButton genre="comédia" icon={<Knife size={21} weight="bold" />}/>
-              <GenreButton genre="ação" icon={<Knife size={21} weight="bold" />}/>
-              <GenreButton genre="família" icon={<Knife size={21} weight="bold" />}/>
-              <GenreButton genre="animação" icon={<Knife size={21} weight="bold" />}/>
+              <GenreButton genre="All" icon={<Knife size={21} weight="bold"/>}/>
+              <GenreButton genre="Horror" icon={<Knife size={21} weight="bold"/>}/>
+              <GenreButton genre="Suspense" icon={<Knife size={21} weight="bold" />}/>
+              <GenreButton genre="Comedy" icon={<Knife size={21} weight="bold" />}/>
+              <GenreButton genre="Action" icon={<Knife size={21} weight="bold" />}/>
+              <GenreButton genre="Family" icon={<Knife size={21} weight="bold" />}/>
+              <GenreButton genre="Animation" icon={<Knife size={21} weight="bold" />}/>
             </div>
           </div>
         </div>

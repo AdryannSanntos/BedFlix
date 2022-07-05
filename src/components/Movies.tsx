@@ -8,7 +8,6 @@ export function Movies() {
       <div className="flex flex-col justify-between h-full">
         <div className="p-6 h-full">
           <MovieRow title="Últimos filmes"/>
-          <MovieRow  title="Filmes de terror"/>
         </div>
         <div className="pr-5 pl-5"> 
           <Footer />

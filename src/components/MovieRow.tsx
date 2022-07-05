@@ -1,14 +1,16 @@
 import { gql, useQuery } from "@apollo/client";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { Movie } from "./Movie";
 
-const GET_MOVIES = gql`
+const GET_ALL_MOVIES = gql`
   query GetMovies {
     movies {
       id
+      image
+      movietype
+      released
       slug
       title
-      released
-      image
     }
   }
 `;
@@ -20,6 +22,7 @@ interface GetMoviesQueryResponse {
     title: string;
     released: Date;
     image: string;
+    movietype: [string];
   }[]
 }
 
@@ -28,7 +31,10 @@ interface MovieRowProps {
 }
 
 export function MovieRow(props : MovieRowProps) {
-  const { data } = useQuery<GetMoviesQueryResponse>(GET_MOVIES);
+  const navigate = useNavigate();
+  const { data } = useQuery<GetMoviesQueryResponse>(GET_ALL_MOVIES);
+  const { type } = useParams<{type : string}>();
+  
   if(!data){
     return (
     <div className="flex-1">
@@ -46,9 +52,21 @@ export function MovieRow(props : MovieRowProps) {
       </div>
       <div className="ml-4 gap-5 flex">
         {data?.movies.map(movies =>{
-          return(
-            <Movie title={movies.title} date={new Date(movies.released)} image={movies.image} slug={movies.slug}/>
-          )
+          if(type){
+            if(type != "All"){
+              if(movies.movietype.includes(type)){
+                return(
+                  <Movie title={movies.title} date={new Date(movies.released)} image={movies.image} slug={movies.slug}/>
+                )
+              }
+            }else{
+              navigate("/movies");
+            }
+          }else{
+            return(
+              <Movie title={movies.title} date={new Date(movies.released)} image={movies.image} slug={movies.slug}/>
+            )
+          }
         })}
       </div>
     </section>
