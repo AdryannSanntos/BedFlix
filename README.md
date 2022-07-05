@@ -17,6 +17,7 @@ Access the BedFlix website by clicking <a href="https://bed-flix.vercel.app">her
 - [x] Iframe to the film
 - [x] Add to the Graphcms new members
 - [x] Verify if exist the member account
+- [ ] Add routes auth to home screen
 - [ ] Admin functions
 - [ ] Responsive
 
@@ -24,6 +25,7 @@ Access the BedFlix website by clicking <a href="https://bed-flix.vercel.app">her
 
 <ul>
    <li>ReactJS</li>
+   <li>Typescript</li>
    <li>GraphQL</li>
    <li>Apollo</li>
    <li>GraphCMS</li>
