@@ -14,7 +14,7 @@ export function Movie(props : MovieProps) {
     locale: ptBR
   });
   return (
-    <div className="flex flex-col items-center">
+    <div className="w-[190px]flex flex-col items-center">
       <Link to={`/movies/${props.slug}`} className="border-[1.5px] border-red-300 rounded-[7px]">
         <img className="rounded-md w-[185px] h-[278px] hover:brightness-50 hover:" src={props.image}/>
       </Link>
