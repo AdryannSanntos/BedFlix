@@ -51,7 +51,7 @@ export function MovieRow(props : MovieRowProps) {
         <div className="w-1 h-8 bg-red-300"></div>
         <span className="title">{props.title}</span>
       </div>
-      <div className="w-full ml-4 gap-5 flex justify-end flex-row-reverse float-left overflow-x-auto">
+      <div className="w-full ml-4 gap-5 flex justify-end flex-wrap flex-row-reverse float-left overflow-x-auto">
         {data?.movies.map(movies =>{
           if(type){
             if(type != "All"){
