@@ -22,7 +22,7 @@ export function Movie(props : MovieProps) {
         <Link to={`/movies/${props.slug}`}>
           <a className="font-light text-lg text-center text-ellipsis w-[185px] overflow-hidden whitespace-nowrap hover:text-red-300 transition-colors">{props.title}</a>
         </Link>  
-        <span className="text-gray-400 text-xs">{availableDateFormatted}</span>
+        <span className="text-gray-400 text-xs">{availableDateFormatted[0].toUpperCase() + availableDateFormatted.substring(1)}</span>
       </div>
     </div>
   )

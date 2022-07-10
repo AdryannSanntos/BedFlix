@@ -27,7 +27,7 @@ export function Sidebar() {
             {search ? 
               <Link onClick={() => setSearch("")} to={`/movies/search=${search}`}>
                 <a><MagnifyingGlass /></a>
-              </Link>
+              </Link> 
               : 
                 <a onClick={GoToMovies} className="cursor-pointer"><MagnifyingGlass /></a>
             }
