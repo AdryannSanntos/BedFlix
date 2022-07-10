@@ -1,5 +1,5 @@
 import background from "../assets/Background.png";
-import { Footer } from "./Footer";
+import { Footer } from "./Utils/Footer";
 import { MovieRow } from "./MovieRow";
 import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";

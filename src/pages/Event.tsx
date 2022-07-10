@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { Header } from "../components/Header";
+import { Header } from "../components/Utils/Header";
 import { Movies } from "../components/Movies";
 import { MovieScreen } from "../components/MovieScreen";
-import { Sidebar } from "../components/Sidebar";
+import { Sidebar } from "../components/Utils/Sidebar";
 
 
 export function Event() {

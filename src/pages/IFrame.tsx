@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Frame } from "../components/Frame";
-import { Header } from "../components/Header";
+import { Header } from "../components/Utils/Header";
 
 export function IFrame() {
   const { slug } = useParams<{slug : string}>();

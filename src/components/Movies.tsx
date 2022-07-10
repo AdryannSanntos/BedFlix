@@ -1,6 +1,6 @@
 import { MovieRow } from "./MovieRow";
 import background from "../assets/Background.png";
-import { Footer } from "./Footer";
+import { Footer } from "./Utils/Footer";
 import { useParams } from "react-router-dom";
 
 export function Movies() {

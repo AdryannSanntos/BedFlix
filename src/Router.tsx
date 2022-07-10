@@ -10,7 +10,8 @@ export function Router() {
       <Route path="/movies" element={<Event />}/>
       <Route path="/movies/:slug" element={<Event />}/>
       <Route path="/movies/watch/:slug" element={<IFrame />}/>
-      <Route path="/movies/search/:type" element={<Event/>}/>
+      <Route path="/movies/search/genre/:type" element={<Event/>}/>
+      <Route path="/movies/search=:name" element={<Event/>}/>
     </Routes>
   )
 }

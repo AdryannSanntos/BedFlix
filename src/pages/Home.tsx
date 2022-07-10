@@ -1,5 +1,5 @@
-import { Footer } from "../components/Footer";
-import { Logo } from "../components/Logo";
+import { Footer } from "../components/Utils/Footer";
+import { Logo } from "../components/Utils/Logo";
 import background from "../assets/Background.png";
 import { useNavigate } from 'react-router-dom';
 import { gql, useMutation, useQuery } from "@apollo/client";

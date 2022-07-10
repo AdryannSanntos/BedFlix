@@ -34,6 +34,7 @@ export function MovieRow(props : MovieRowProps) {
   const navigate = useNavigate();
   const { data } = useQuery<GetMoviesQueryResponse>(GET_ALL_MOVIES);
   const { type } = useParams<{type : string}>();
+  const { name } = useParams<{name : string}>();
   
   if(!data){
     return (
@@ -50,7 +51,7 @@ export function MovieRow(props : MovieRowProps) {
         <div className="w-1 h-8 bg-red-300"></div>
         <span className="title">{props.title}</span>
       </div>
-      <div className="ml-4 gap-5 flex flex-row-reverse float-left">
+      <div className="w-full ml-4 gap-5 flex justify-end flex-row-reverse float-left overflow-x-auto">
         {data?.movies.map(movies =>{
           if(type){
             if(type != "All"){
@@ -63,9 +64,17 @@ export function MovieRow(props : MovieRowProps) {
               navigate("/movies");
             }
           }else{
-            return(
-              <Movie title={movies.title} date={new Date(movies.released)} image={movies.image} slug={movies.slug}/>
-            )
+            if(name){
+              if(movies.title.toLowerCase().includes(name.toLowerCase())){
+                return(
+                  <Movie title={movies.title} date={new Date(movies.released)} image={movies.image} slug={movies.slug}/>
+                )
+              }
+            }else{
+              return(
+                <Movie title={movies.title} date={new Date(movies.released)} image={movies.image} slug={movies.slug}/>
+              )
+            }
           }
         })}
       </div>
