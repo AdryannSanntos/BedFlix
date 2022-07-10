@@ -23,9 +23,9 @@ export function Sidebar() {
             Pesquisa
           </span>
           <div className="flex justify-between items-center bg-gray-900 p-3 rounded mt-4 ">
-            <input onChange={(event) => setSearch(event.target.value)} className="w-[90%] bg-transparent outline-none" type="text" placeholder="Procurar..."/>
+            <input value={search} onChange={(event) => setSearch(event.target.value)} className="w-[90%] bg-transparent outline-none" type="text" placeholder="Procurar..."/>
             {search ? 
-              <Link to={`/movies/search=${search}`}>
+              <Link onClick={() => setSearch("")} to={`/movies/search=${search}`}>
                 <a><MagnifyingGlass /></a>
               </Link>
               : 
